@@ -24,3 +24,9 @@ ENV PATH $JAVA_HOME/bin:$PATH
 # Inslate Allure CLI
 #RUN wget https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.12.1/allure-commandline-2.12.1.zip && \
 #    unzip allure-commandline-2.12.1.zip && bin/allure && rm allure-commandline-2.12.1.zip
+
+#Providing all permissions to userjenkins
+RUN groupadd -g 1000 jenkins && \
+   useradd -u 1000 -g 1000 -m -s /bin/bash jenkins
+
+USER jenkins
