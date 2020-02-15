@@ -1,6 +1,6 @@
 FROM java:8-jdk
 
-ENV GRADLE_VERSION 5.1.1
+ENV GRADLE_VERSION 6.1.1
 ENV ALLURE_VERSION 2.13.1
 
 RUN echo "deb [check-valid-until=no] http://cdn-fastly.deb.debian.org/debian jessie main" > /etc/apt/sources.list.d/jessie.list
