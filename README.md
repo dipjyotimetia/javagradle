@@ -1,2 +1,2 @@
 # javagradle
-java 8 and gradle 5.1.1 with allure report 2.21.1 docker image
+java 8 and gradle 6.3 with allure report 2.31.2 docker image
