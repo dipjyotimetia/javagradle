@@ -1,7 +1,7 @@
 FROM java:8-jdk
 
-ENV GRADLE_VERSION 6.3
-ENV ALLURE_VERSION 2.13.2
+ENV GRADLE_VERSION 6.4
+ENV ALLURE_VERSION 2.13.3
 
 RUN echo "deb [check-valid-until=no] http://cdn-fastly.deb.debian.org/debian jessie main" > /etc/apt/sources.list.d/jessie.list
 RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
@@ -26,4 +26,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 RUN curl -o allure-commandline-${ALLURE_VERSION}.tgz -Ls https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz && \
     tar -zxvf allure-commandline-${ALLURE_VERSION}.tgz -C /opt/ && ln -s /opt/allure-${ALLURE_VERSION}/bin/allure /usr/bin/allure && allure --version
 
-USER root
+RUN groupadd -g 1000 jenkins && \
+   useradd -u 1000 -g 1000 -m -s /bin/bash jenkins
+
+USER jenkins
